@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>レジックスポーツ春日井校 | 体操・スポーツスクール</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --red:    #E63246;
+    --yellow: #FFD43B;
+    --blue:   #1A73C8;
+    --navy:   #142B5E;
+    --white:  #FFFFFF;
+    --offwhite: #F7F9FC;
+    --gray:   #5A5F72;
+    --light:  #EEF3FB;
+    --radius: 16px;
+    --font-body: 'Noto Sans JP', sans-serif;
+    --font-accent: 'Fredoka One', cursive;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--navy);
+    background: var(--white);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+
+  /* ─── HEADER ─── */
+  header {
+    background: var(--navy);
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .header-school {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .header-logo-badge {
+    width: 42px;
+    height: 42px;
+    background: var(--yellow);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-accent);
+    font-size: 20px;
+    color: var(--navy);
+    flex-shrink: 0;
+  }
+
+  .header-name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: .02em;
+    line-height: 1.3;
+  }
+
+  .header-name small {
+    display: block;
+    font-size: .72rem;
+    font-weight: 400;
+    color: #A8C0E8;
+    letter-spacing: .04em;
+  }
+
+  .header-cta a {
+    display: inline-block;
+    background: var(--red);
+    color: var(--white);
+    font-size: .82rem;
+    font-weight: 700;
+    padding: 9px 18px;
+    border-radius: 50px;
+    white-space: nowrap;
+    transition: opacity .2s;
+  }
+  .header-cta a:hover { opacity: .85; }
+
+  /* ─── HERO IMAGE ─── */
+  .hero-image {
+    width: 100%;
+    max-height: 520px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+
+  /* ─── HERO TEXT ─── */
+  .hero-text {
+    background: linear-gradient(135deg, var(--navy) 0%, #1A3A7A 100%);
+    padding: 52px 24px 56px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-text::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: var(--yellow);
+    opacity: .08;
+  }
+
+  .hero-text::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -40px;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    background: var(--red);
+    opacity: .06;
+  }
+
+  .hero-text-inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
+
+  .hero-eyebrow {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--navy);
+    font-size: .78rem;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 50px;
+    margin-bottom: 18px;
+    letter-spacing: .06em;
+  }
+
+  .hero-h1 {
+    font-size: clamp(1.7rem, 5vw, 2.8rem);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.3;
+    margin-bottom: 16px;
+  }
+
+  .hero-h1 em {
+    font-style: normal;
+    color: var(--yellow);
+  }
+
+  .hero-sub {
+    font-size: clamp(.9rem, 2.5vw, 1.05rem);
+    color: #C5D8F5;
+    margin-bottom: 32px;
+    line-height: 1.8;
+  }
+
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 36px;
+  }
+
+  .hero-badge {
+    background: rgba(255,255,255,.12);
+    border: 1.5px solid rgba(255,255,255,.25);
+    color: var(--white);
+    font-size: .8rem;
+    font-weight: 500;
+    padding: 6px 16px;
+    border-radius: 50px;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--red);
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 15px 36px;
+    border-radius: 50px;
+    box-shadow: 0 4px 18px rgba(230,50,70,.4);
+    transition: transform .2s, box-shadow .2s;
+    letter-spacing: .03em;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(230,50,70,.5); }
+
+  .btn-secondary {
+    display: inline-block;
+    background: transparent;
+    color: var(--white);
+    font-size: .88rem;
+    font-weight: 500;
+    padding: 12px 28px;
+    border-radius: 50px;
+    border: 2px solid rgba(255,255,255,.4);
+    transition: background .2s, border-color .2s;
+    margin-left: 12px;
+  }
+  .btn-secondary:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.7); }
+
+  .hero-btns { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+
+  /* ─── SECTION COMMONS ─── */
+  section { padding: 64px 24px; }
+
+  .section-inner { max-width: 900px; margin: 0 auto; }
+
+  .section-label {
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    color: var(--red);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-size: clamp(1.35rem, 3.5vw, 1.9rem);
+    font-weight: 900;
+    line-height: 1.35;
+    margin-bottom: 12px;
+  }
+
+  .section-lead {
+    font-size: .95rem;
+    color: var(--gray);
+    max-width: 600px;
+    line-height: 1.8;
+    margin-bottom: 40px;
+  }
+
+  /* ─── FEATURE (OSHIOSHI) ─── */
+  .feature-section {
+    background: var(--offwhite);
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  @media (min-width: 640px) {
+    .feature-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  .feature-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    border-top: 5px solid var(--yellow);
+    box-shadow: 0 2px 12px rgba(20,43,94,.06);
+  }
+
+  .feature-card.accent { border-top-color: var(--red); }
+  .feature-card.blue   { border-top-color: var(--blue); }
+
+  .feature-icon {
+    font-size: 2.2rem;
+    margin-bottom: 14px;
+    line-height: 1;
+  }
+
+  .feature-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--navy);
+  }
+
+  .feature-card p {
+    font-size: .88rem;
+    color: var(--gray);
+    line-height: 1.75;
+  }
+
+  /* HIGHLIGHT card */
+  .highlight-box {
+    background: linear-gradient(135deg, var(--navy) 0%, #1A3A7A 100%);
+    border-radius: var(--radius);
+    padding: 36px 30px;
+    color: var(--white);
+    margin-top: 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .highlight-icon {
+    font-size: 3rem;
+    flex-shrink: 0;
+  }
+
+  .highlight-box h3 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--yellow);
+    margin-bottom: 8px;
+  }
+
+  .highlight-box p {
+    font-size: .9rem;
+    color: #C5D8F5;
+    line-height: 1.8;
+    margin-bottom: 0;
+  }
+
+  /* ─── COURSES ─── */
+  .courses-section { background: var(--white); }
+
+  .courses-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  @media (min-width: 640px) {
+    .courses-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 900px) {
+    .courses-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .course-card {
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 2px solid var(--light);
+    transition: box-shadow .2s;
+  }
+  .course-card:hover { box-shadow: 0 4px 20px rgba(20,43,94,.12); }
+
+  .course-head {
+    padding: 18px 20px;
+    background: var(--blue);
+    color: var(--white);
+  }
+  .course-card:nth-child(2) .course-head { background: var(--red); }
+  .course-card:nth-child(3) .course-head { background: var(--navy); }
+  .course-card:nth-child(4) .course-head { background: #20A87A; }
+  .course-card:nth-child(5) .course-head { background: #8B5CF6; }
+
+  .course-head .age {
+    font-size: .72rem;
+    font-weight: 700;
+    background: rgba(255,255,255,.2);
+    padding: 2px 10px;
+    border-radius: 50px;
+    display: inline-block;
+    margin-bottom: 6px;
+    letter-spacing: .04em;
+  }
+
+  .course-head h3 {
+    font-size: 1rem;
+    font-weight: 800;
+    line-height: 1.3;
+  }
+
+  .course-body {
+    padding: 18px 20px;
+    font-size: .85rem;
+    color: var(--gray);
+    line-height: 1.75;
+  }
+
+  /* ─── STRENGTHS ─── */
+  .strengths-section { background: var(--light); }
+
+  .strengths-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .strength-item {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 24px 22px;
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    box-shadow: 0 2px 10px rgba(20,43,94,.05);
+  }
+
+  .strength-num {
+    font-family: var(--font-accent);
+    font-size: 2rem;
+    color: var(--yellow);
+    line-height: 1;
+    flex-shrink: 0;
+    min-width: 44px;
+    -webkit-text-stroke: 2px var(--navy);
+    paint-order: stroke fill;
+  }
+
+  .strength-item h3 {
+    font-size: .98rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--navy);
+  }
+
+  .strength-item p {
+    font-size: .87rem;
+    color: var(--gray);
+    line-height: 1.75;
+  }
+
+  /* ─── STORY ─── */
+  .story-section { background: var(--white); }
+
+  .story-box {
+    background: var(--offwhite);
+    border-left: 6px solid var(--yellow);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 28px 24px 28px 28px;
+  }
+
+  .story-box .name-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--navy);
+    color: var(--white);
+    font-size: .78rem;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 50px;
+    margin-bottom: 14px;
+  }
+
+  .story-box p {
+    font-size: .9rem;
+    color: #3A4060;
+    line-height: 1.9;
+  }
+
+  /* ─── FREE TRIAL ─── */
+  .trial-section {
+    background: linear-gradient(135deg, var(--red) 0%, #C0213A 100%);
+    text-align: center;
+    padding: 64px 24px;
+  }
+
+  .trial-section h2 {
+    font-size: clamp(1.4rem, 4vw, 2.1rem);
+    font-weight: 900;
+    color: var(--white);
+    margin-bottom: 12px;
+    line-height: 1.35;
+  }
+
+  .trial-section p {
+    font-size: .95rem;
+    color: rgba(255,255,255,.85);
+    margin-bottom: 28px;
+    line-height: 1.8;
+  }
+
+  .btn-trial {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--navy);
+    font-size: 1.05rem;
+    font-weight: 900;
+    padding: 16px 44px;
+    border-radius: 50px;
+    box-shadow: 0 4px 18px rgba(0,0,0,.2);
+    transition: transform .2s;
+    letter-spacing: .03em;
+  }
+  .btn-trial:hover { transform: translateY(-2px); }
+
+  /* ─── REVIEWS ─── */
+  .reviews-section { background: var(--offwhite); }
+
+  .reviews-grid {
+    display: grid;
+    gap: 16px;
+  }
+  @media (min-width: 640px) {
+    .reviews-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  .review-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 22px 20px;
+    box-shadow: 0 2px 10px rgba(20,43,94,.06);
+    position: relative;
+  }
+
+  .review-card::before {
+    content: '"';
+    font-family: Georgia, serif;
+    font-size: 4rem;
+    color: var(--yellow);
+    line-height: 1;
+    position: absolute;
+    top: 10px; left: 16px;
+    opacity: .35;
+  }
+
+  .stars {
+    color: #FFC300;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    letter-spacing: .1em;
+  }
+
+  .review-card p {
+    font-size: .88rem;
+    color: var(--gray);
+    line-height: 1.75;
+    padding-top: 8px;
+  }
+
+  /* ─── MAP ─── */
+  .map-section { background: var(--white); }
+
+  .map-wrap {
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 14px rgba(20,43,94,.08);
+  }
+
+  .map-wrap iframe {
+    width: 100%;
+    height: 320px;
+    border: 0;
+    display: block;
+  }
+
+  .btn-map {
+    display: inline-block;
+    background: var(--blue);
+    color: var(--white);
+    font-size: .9rem;
+    font-weight: 700;
+    padding: 12px 28px;
+    border-radius: 50px;
+    transition: opacity .2s;
+  }
+  .btn-map:hover { opacity: .85; }
+
+  .map-center { text-align: center; }
+
+  .info-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 28px;
+    font-size: .9rem;
+  }
+
+  .info-table th {
+    width: 110px;
+    padding: 12px 14px;
+    text-align: left;
+    font-weight: 700;
+    color: var(--navy);
+    background: var(--light);
+    border-bottom: 1px solid #DDE4F0;
+    vertical-align: top;
+    white-space: nowrap;
+  }
+
+  .info-table td {
+    padding: 12px 14px;
+    color: var(--gray);
+    border-bottom: 1px solid #DDE4F0;
+    line-height: 1.7;
+  }
+
+  /* ─── SNS ─── */
+  .sns-section { background: var(--light); padding: 48px 24px; text-align: center; }
+
+  .sns-label { font-size: .78rem; font-weight: 700; color: var(--gray); letter-spacing: .08em; margin-bottom: 16px; }
+
+  .sns-links {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .sns-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 22px;
+    border-radius: 50px;
+    font-size: .88rem;
+    font-weight: 700;
+    transition: opacity .2s;
+  }
+  .sns-btn:hover { opacity: .85; }
+
+  .sns-btn.instagram {
+    background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);
+    color: #fff;
+  }
+
+  .sns-btn svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,.7);
+    padding: 40px 24px 28px;
+    font-size: .84rem;
+  }
+
+  .footer-inner { max-width: 900px; margin: 0 auto; }
+
+  .footer-school-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 16px 0;
+  }
+
+  .footer-links a {
+    color: #A8C0E8;
+    font-size: .83rem;
+    transition: color .2s;
+  }
+  .footer-links a:hover { color: var(--white); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,.1);
+    margin-top: 24px;
+    padding-top: 18px;
+    font-size: .78rem;
+    color: rgba(255,255,255,.4);
+  }
+
+  /* ─── COMING SOON BANNER ─── */
+  .coming-soon {
+    background: #EEF3FB;
+    border: 2px dashed var(--blue);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    margin-top: 28px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: .88rem;
+    color: var(--blue);
+  }
+  .coming-soon .cs-label {
+    background: var(--blue);
+    color: var(--white);
+    font-size: .7rem;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 50px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* ─── UTILITY ─── */
+  .text-center { text-align: center; }
+  .mt-8 { margin-top: 8px; }
+  .mt-16 { margin-top: 16px; }
+  .mt-24 { margin-top: 24px; }
+
+  @media (max-width: 480px) {
+    .header-cta a { padding: 8px 14px; font-size: .78rem; }
+    .btn-secondary { margin-left: 0; }
+    .highlight-box { flex-direction: column; gap: 12px; }
+    .info-table th { width: 88px; font-size: .82rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── HEADER ─── -->
+<header>
+  <div class="header-school">
+    <div class="header-logo-badge">L</div>
+    <a href="https://www.legyc.com/" target="_blank" rel="noopener">
+      <div class="header-name">
+        レジックスポーツ春日井校
+        <small>Legyc Sports Kasugai</small>
+      </div>
+    </a>
+  </div>
+  <div class="header-cta">
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSf5k7Vku9bFymC2F8AuUTAaAoIoR242MdwpvxHQqB3rh6C1aA/viewform" target="_blank" rel="noopener">無料体験を申込む</a>
+  </div>
+</header>
+
+<!-- ─── HERO IMAGE ─── -->
+<div class="hero-image">
+  <img src="images/hero.jpg" alt="レジックスポーツ春日井校 体操の様子">
+</div>
+
+<!-- ─── HERO TEXT ─── -->
+<div class="hero-text">
+  <div class="hero-text-inner">
+    <span class="hero-eyebrow">春日井市の体操・スポーツスクール</span>
+    <h1 class="hero-h1">
+      「できた！」の<em>よろこび</em>を、<br>すべての子どもたちに。
+    </h1>
+    <p class="hero-sub">
+      オリンピック経験者が率いる指導陣とともに、<br>
+      体操・トランポリンで心とからだを育てます。
+    </p>
+    <div class="hero-badges">
+      <span class="hero-badge">🏅 オリンピック経験コーチ在籍</span>
+      <span class="hero-badge">🎉 1日無料体験受付中</span>
+    </div>
+    <div class="hero-btns">
+      <a class="btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSf5k7Vku9bFymC2F8AuUTAaAoIoR242MdwpvxHQqB3rh6C1aA/viewform" target="_blank" rel="noopener">無料体験に申込む</a>
+      <a class="btn-secondary" href="tel:0568-29-7331">📞 お電話で問合せ</a>
+    </div>
+  </div>
+</div>
+
+<!-- ─── FEATURE (イチオシ) ─── -->
+<section class="feature-section">
+  <div class="section-inner">
+    <p class="section-label">About Legyc Sports</p>
+    <h2 class="section-title">春日井校だけの<br>特別な環境と指導</h2>
+    <p class="section-lead">専用設備と経験豊富なコーチが、子どもたちの「やってみたい！」を全力でサポートします。</p>
+
+    <div class="feature-grid mt-24">
+      <div class="feature-card">
+        <div class="feature-icon">🎓</div>
+        <h3>経験豊富な指導陣</h3>
+        <p>オリンピック経験者をはじめとする実績あるコーチが、楽しく丁寧に指導。技術だけでなく礼儀や仲間を大切にする心も育みます。</p>
+      </div>
+      <div class="feature-card accent">
+        <div class="feature-icon">👶</div>
+        <h3>1歳10ヶ月から始められる</h3>
+        <p>リトルジュニアコースから選手育成コースまで、成長段階に合わせた多彩なコース設定。どのステージの子どもも楽しく通えます。</p>
+      </div>
+      <div class="feature-card blue">
+        <div class="feature-icon">🤸</div>
+        <h3>充実した専用設備</h3>
+        <p>トランポリン・跳び箱・鉄棒・マットなどが揃った本格的な練習環境。安全に配慮した設備で思い切り練習できます。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📱</div>
+        <h3>Web振替システム</h3>
+        <p>レッスンの振替予約はWebから簡単に手続きできます。忙しい保護者の方でも無理なく続けられる体制が整っています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ─── STRENGTHS ─── -->
+<section class="strengths-section">
+  <div class="section-inner">
+    <p class="section-label">Why Legyc Sports</p>
+    <h2 class="section-title">レジックスポーツ<br>3つの強み</h2>
+
+    <div class="strengths-list mt-24">
+      <div class="strength-item">
+        <div class="strength-num">1</div>
+        <div>
+          <h3>実績豊富なプロの指導</h3>
+          <p>日本代表や国際大会の出場・育成実績を持つコーチが、幼児から高校生まで丁寧に直接指導します。技術だけでなく、挨拶・礼儀・集団行動を大切にした人間教育も実践しています。</p>
+        </div>
+      </div>
+      <div class="strength-item">
+        <div class="strength-num">2</div>
+        <div>
+          <h3>充実した専用施設</h3>
+          <p>タンブリングトランポリン・跳び箱・鉄棒・マットなど体操専用の設備を完備。安全かつ本格的な練習環境で、子どもたちが集中してスキルアップできます。</p>
+        </div>
+      </div>
+      <div class="strength-item">
+        <div class="strength-num">3</div>
+        <div>
+          <h3>利便性の高い振替システム</h3>
+          <p>Web上から簡単に振替予約ができるため、ご予定が合わない日も安心。忙しいご家庭でも、お子様が無理なく通い続けられる環境が整っています。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── STORY ─── -->
+<section class="story-section">
+  <div class="section-inner">
+    <p class="section-label">Founder's Story</p>
+    <h2 class="section-title">代表・岡﨑美穂の<br>想いとあゆみ</h2>
+
+    <div class="story-box mt-24">
+      <div class="name-tag">
+        🏅 代表取締役 岡﨑 美穂（アトランタ五輪代表）
+      </div>
+      <p>
+        アトランタ五輪代表の岡﨑美穂は、13年の現役生活で学んだ「挨拶・礼儀・集団行動」を軸に、
+        体操を通じて子どもの可能性を広げることを使命としています。<br><br>
+        1999年に設立されたレジックスポーツの先代が抱いた「多くの人に体操を知ってほしい」という想いを受け継ぎ、
+        2023年に代表就任。技術だけでなく心と身体を育む「人づくり」を大切に、
+        春日井校を含む4校の未来を担っています。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FREE TRIAL ─── -->
+<section class="trial-section">
+  <h2>🎉 まずは無料体験から！</h2>
+  <p>
+    1日無料体験を随時受付中です。<br>
+    実際の雰囲気やコーチの指導を、ぜひ体感してみてください。
+  </p>
+  <a class="btn-trial" href="https://docs.google.com/forms/d/e/1FAIpQLSf5k7Vku9bFymC2F8AuUTAaAoIoR242MdwpvxHQqB3rh6C1aA/viewform" target="_blank" rel="noopener">無料体験を申込む</a>
+  <p class="mt-16" style="font-size:.82rem;color:rgba(255,255,255,.7);">
+    📞 お電話でのお問合せは <a href="tel:0568-29-7331" style="color:#FFD43B;font-weight:700;">0568-29-7331</a> まで
+  </p>
+</section>
+
+
+
+<!-- ─── MAP / ACCESS ─── -->
+<section class="map-section">
+  <div class="section-inner">
+    <p class="section-label">Access</p>
+    <h2 class="section-title">アクセス・教室情報</h2>
+
+    <div class="map-wrap mt-24">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3257.9574191644538!2d136.9871896!3d35.2573151!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60036df10e50d657%3A0x1d4b9476a6a885d5!2z44Os44K444OD44Kv44K544Od44O844OE5pil5pel5LqV5qCh!5e0!3m2!1sja!2sjp!4v1792735851929!5m2!1sja!2sjp"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+        title="レジックスポーツ春日井校 地図"></iframe>
+    </div>
+
+    <div class="map-center">
+      <a class="btn-map"
+         href="https://www.google.com/maps/place/%E3%83%AC%E3%82%B8%E3%83%83%E3%82%AF%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%84%E6%98%A5%E6%97%A5%E4%BA%95%E6%A0%A1/@35.2573151,136.9871896,17z/data=!3m1!4b1!4m6!3m5!1s0x60036df10e50d657:0x1d4b9476a6a885d5!8m2!3d35.2573151!4d136.9871896!16s%2Fg%2F1tdb463j?authuser=0&entry=ttu&g_ep=EgoyMDI2MTAxOS4wIKXMDSoASAFQAw%3D%3D"
+         target="_blank" rel="noopener">
+        📍 Googleマップで見る
+      </a>
+    </div>
+
+    <table class="info-table mt-24">
+      <tr>
+        <th>教室名</th>
+        <td>レジックスポーツ春日井校</td>
+      </tr>
+      <tr>
+        <th>住所</th>
+        <td>〒486-0851 愛知県春日井市篠木町５丁目１６７７−８</td>
+      </tr>
+      <tr>
+        <th>電話</th>
+        <td><a href="tel:0568-29-7331" style="color:var(--blue);font-weight:700;">0568-29-7331</a></td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<!-- ─── SNS ─── -->
+<section class="sns-section">
+  <p class="sns-label">SNS・公式情報</p>
+  <div class="sns-links">
+    <a class="sns-btn instagram"
+       href="https://www.instagram.com/legyc.sports.gymnastics.club/"
+       target="_blank" rel="noopener">
+      <!-- Instagram公式SVGアイコン -->
+      <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" aria-label="Instagram">
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+      </svg>
+      Instagram
+    </a>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-school-name">レジックスポーツ春日井校</div>
+    <div style="font-size:.82rem;color:rgba(255,255,255,.55);margin-top:2px;">有限会社レジックスポーツ</div>
+    <div class="footer-links">
+      <a href="https://www.legyc.com/" target="_blank" rel="noopener">🔗 公式サイト</a>
+      <a href="https://www.instagram.com/legyc.sports.gymnastics.club/" target="_blank" rel="noopener">📷 Instagram</a>
+      <a href="tel:0568-29-7331">📞 0568-29-7331</a>
+    </div>
+    <div style="font-size:.83rem;color:rgba(255,255,255,.55);">
+      〒486-0851 愛知県春日井市篠木町５丁目１６７７−８
+    </div>
+    <div class="footer-bottom">
+      &copy; 2024 有限会社レジックスポーツ All Rights Reserved.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
